@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<div th:include="~{/stable/head.html}"></div>
+<body>
+    <div th:include="~{/stable/navbar.html}"></div>
+    <div class="container">
+        <table class="table mt-3">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Surname</th>
+                <th scope="col">Exam</th>
+                <th scope="col">Mark</th>
+            </tr>
+            </thead>
+            <tbody>
+                <div th:each="st : ${students}">
+                    <tr>
+                        <th th:text="${st.getId()}"
+                            th:style="${st.getMark() == 'F' ? 'color: red;' : ''}"></th>
+                        <td th:text="${st.getName()}"
+                            th:style="${st.getMark() == 'F' ? 'color: red;' : ''}"></td>
+                        <td th:text="${st.getSurname()}"
+                            th:style="${st.getMark() == 'F' ? 'color: red;' : ''}"></td>
+                        <td th:text="${st.getExam()}"
+                            th:style="${st.getMark() == 'F' ? 'color: red;' : ''}"></td>
+                        <td th:text="${st.getMark()}"
+                            th:style="${st.getMark() == 'F' ? 'color: red;' : ''}"></td>
+                    </tr>
+                </div>
+            </tbody>
+        </table>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</html>
